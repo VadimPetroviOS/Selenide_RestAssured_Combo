@@ -16,6 +16,10 @@ target/
 .settings
 .springBeans
 .sts4-cache
+### Allure ###
+.allure/
+allure-results/
+allure-report/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
