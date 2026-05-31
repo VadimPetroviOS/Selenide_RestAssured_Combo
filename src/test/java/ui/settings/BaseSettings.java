@@ -11,11 +11,12 @@ public class BaseSettings {
     @BeforeEach
     void setUp() {
         Configuration.browser = "chrome";
+//        Configuration.holdBrowserOpen = true;
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
     void tearDown() {
             Selenide.closeWebDriver();
-        }
+    }
 }
