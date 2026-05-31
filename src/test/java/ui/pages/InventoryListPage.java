@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -24,11 +25,17 @@ public class InventoryListPage extends BasePage {
             inventoryList.$$x(".//div[@class='inventory_item']");
     private final ElementsCollection inventoryItemPrices =
             inventoryList.$$x(".//div[@data-test='inventory-item-price']");
+    private final ElementsCollection inventoryItemNames =
+            inventoryList.$$x(".//*[@data-test='inventory-item-name']");
 
     private final SelenideElement sortDropdown = $x("//*[@data-test='product-sort-container']");
     private final SelenideElement azSortElement =
             sortDropdown.$x("./option[@value='az']");
 
+    private final SelenideElement cartBadge = $x("//*[@data-test='shopping-cart-badge']");
+    // только button с нужным data-test
+    private final ElementsCollection addToCartButtons =
+            $$x("//button[contains(@data-test, 'add-to-cart')]");
 
     public InventoryListPage() {
         URL += "/inventory.html";
@@ -79,5 +86,30 @@ public class InventoryListPage extends BasePage {
                 .collect(Collectors.toList());
         Assertions.assertEquals(sorted, actual, "Товары отсортированы неверно");
         return this;
+    }
+
+    @Step("Добавить {count} товаров в корзину")
+    public InventoryListPage addItemsToCart(int count) {
+        for (int i = 0; i < count; i++) {
+            addToCartButtons.first().click(); // всегда первая оставшаяся кнопка
+        }
+        return this;
+    }
+
+    @Step("Проверяем счётчик корзины = {expected}")
+    public InventoryListPage assertCartBadge(int expected) {
+        cartBadge.shouldHave(text(String.valueOf(expected)));
+        return this;
+    }
+
+    @Step("Открытие корзины")
+    public CartPage openCart() {
+        cartBadge.click();
+        return Pages.cart;
+    }
+
+    @Step("Получение имени первого товара")
+    public String getFirstItemName() {
+        return inventoryItemNames.first().getText();
     }
 }
