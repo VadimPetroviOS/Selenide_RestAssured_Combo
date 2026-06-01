@@ -1,4 +1,4 @@
-package ui.tests.mainPage;
+package ui.tests.inventoryPage;
 
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
