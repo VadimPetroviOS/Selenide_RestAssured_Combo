@@ -17,6 +17,6 @@ public class BaseSettings {
 
     @AfterEach
     void tearDown() {
-            Selenide.closeWebDriver();
+        Selenide.closeWebDriver();
     }
 }

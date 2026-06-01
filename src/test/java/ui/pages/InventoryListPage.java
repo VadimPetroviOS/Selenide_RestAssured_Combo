@@ -112,4 +112,10 @@ public class InventoryListPage extends BasePage {
     public String getFirstItemName() {
         return inventoryItemNames.first().getText();
     }
+
+    @Step("Проверить что открылась страница каталога")
+    public InventoryListPage shouldBeOnInventoryPage() {
+        Selenide.webdriver().shouldHave(WebDriverConditions.urlContaining("/inventory.html"));
+        return this;
+    }
 }
