@@ -2,6 +2,7 @@ package ui.tests.mainPage;
 
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.config.Config;
 import ui.models.UserCredentials;
@@ -22,6 +23,7 @@ public class MainPagesTests extends BaseSettings {
     }
 
     @Test
+    @Tag("smoke")
     @Story("Успешный логин")
     public void testCorrectLogin() {
         Pages.login
@@ -30,6 +32,7 @@ public class MainPagesTests extends BaseSettings {
     }
 
     @Test
+    @Tag("regression")
     @Story("Неуспешный логин")
     public void testIncorrectLogin() {
         creds.setUsername(Config.incorrectUsername);

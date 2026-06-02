@@ -30,6 +30,8 @@
 
         <!-- Utils -->
         <lombok.version>1.18.34</lombok.version>
+
+        <test.groups>smoke | regression</test.groups>
     </properties>
 
     <dependencies>
@@ -132,6 +134,7 @@
                     <parallel>classes</parallel>
                     <threadCount>4</threadCount>
                     <forkCount>1</forkCount>
+                    <groups>${test.groups}</groups>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>

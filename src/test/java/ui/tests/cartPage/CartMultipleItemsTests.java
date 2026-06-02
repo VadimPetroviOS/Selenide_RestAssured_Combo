@@ -1,6 +1,7 @@
 package ui.tests.cartPage;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.pages.Pages;
 import ui.settings.BaseSettings;
@@ -13,6 +14,7 @@ public class CartMultipleItemsTests extends BaseSettings {
     }
 
     @Test
+    @Tag("regression")
     void removeOneItemFromMultiple() {
         Pages.cart.cartShouldHaveSize(4)
                 .removeFirstItem()

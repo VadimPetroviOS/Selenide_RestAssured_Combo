@@ -1,11 +1,13 @@
 package api.tests.imagesSearch.get;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class ImagesSearchTests {
 
     @Test
+    @Tag("regression")
     @DisplayName("GET /images/search — поиск по базовому набору изображений")
     public void searchImages() {
 

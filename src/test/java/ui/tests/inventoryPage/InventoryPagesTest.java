@@ -3,6 +3,7 @@ package ui.tests.inventoryPage;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -44,6 +45,7 @@ public class InventoryPagesTest extends BaseSettings {
     }
 
     @Test
+    @Tag("regression")
     @Story("Сортировка по умолчанию")
     public void assertDefaultSort() {
         Pages.inventoryList
@@ -52,6 +54,7 @@ public class InventoryPagesTest extends BaseSettings {
     }
 
     @ParameterizedTest
+    @Tag("regression")
     @MethodSource("sortProvider")
     @Story("Сортировка товаров по названию")
     public void sortByName(String sortValue, Comparator<String> comparator) {
@@ -61,6 +64,7 @@ public class InventoryPagesTest extends BaseSettings {
     }
 
     @ParameterizedTest
+    @Tag("regression")
     @MethodSource("priceSortProvider")
     @Story("Сортировка товаров по цене")
     public void sortByPrice(String sortValue, Comparator<Double> comparator) {
@@ -70,6 +74,7 @@ public class InventoryPagesTest extends BaseSettings {
     }
 
     @Test
+    @Tag("regression")
     @Story("Счётчик корзины")
     public void cartBadgeAppearsOnAddItem() {
         Pages.inventoryList
@@ -78,6 +83,7 @@ public class InventoryPagesTest extends BaseSettings {
     }
 
     @ParameterizedTest
+    @Tag("regression")
     @MethodSource("cartCountProvider")
     @Story("Счётчик корзины")
     public void cartBadgeIncrementsOnAddItem(int itemsToAdd) {
@@ -87,6 +93,7 @@ public class InventoryPagesTest extends BaseSettings {
     }
 
     @Test
+    @Tag("regression")
     @Story("Отображение товара в корзине")
     void testAddItemsToCartAndVerifyDisplay() {
         String expectedName = Pages.inventoryList.getFirstItemName(); // запомнили имя
