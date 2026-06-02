@@ -11,7 +11,7 @@ public class BaseSettings {
     @BeforeEach
     void setUp() {
         Configuration.browser = "chrome";
-//        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 

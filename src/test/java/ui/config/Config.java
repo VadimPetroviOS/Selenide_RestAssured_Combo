@@ -9,4 +9,8 @@ public class Config {
     public static final String sortZA = "za";
     public static final String sortLohi = "lohi";
     public static final String sortHilo = "hilo";
+
+    public static final String firstName = "admin";
+    public static final String lastName = "admin";
+    public static final String postalCode = "404";
 }

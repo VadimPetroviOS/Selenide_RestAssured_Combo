@@ -5,4 +5,5 @@ public class Pages {
     public static final InventoryListPage inventoryList = new InventoryListPage();
     public static final CartPage cart = new CartPage();
     public static final CheckoutStepOnePage stepOne = new CheckoutStepOnePage();
+    public static final CheckoutStepTwoPage stepTwo = new CheckoutStepTwoPage();
 }
